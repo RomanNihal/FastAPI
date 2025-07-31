@@ -36,8 +36,7 @@ def patient(patient_id: str = Path(..., description='Id of the patient', example
     raise HTTPException(status_code=404, detail='patient not found')
 
 @app.get('/sort')
-def sort(sort_by: str = Query(..., description='sort on the basis of height or weight'),
-         order: str = Query('asc', description='sorting order')):
+def sort(sort_by: str = Query(..., description='sort on the basis of height or weight'), order: str = Query('asc', description='sorting order')):
     data =  load_data()
 
     valid_fields = ['height', 'weight']
